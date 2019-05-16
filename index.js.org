@@ -16,14 +16,13 @@ describe('object operations', () => {
      * - Attach the response to the data variable defined above
      */
     const params = {
-      uri: url.format('https://api.coindesk.com/v1/bpi/historical/close.json?start=2019-01-01&end=2019-01-31'),
+      uri: url.format({/* TODO: */}),
       json: true
     }
 
     const {bpi} = await rp(params) || {}
     data = bpi
     // NOTE: you might find it useful to log the response here
-    console.log(data)
   })
 
   it('should handle basic arithmetic', () => {
@@ -42,16 +41,10 @@ describe('object operations', () => {
     /**
      * INSTRUCTIONS:
      *
-     * Extract only the results from Tuesdays, not Mondays
+     * Extract only the results from Mondays
      * See expected result below
      */
-    let temp = {}
-    Object.keys(data).forEach(date => {
-      if(new Date(date).getDay() === 2)
-        temp[date] = data[date]
-    })
-    const actual = temp
-    console.log(actual)
+    const actual = null // TODO:
     const expected = {
       '2019-01-01': 3869.47,
       '2019-01-08': 4029.9917,
@@ -69,9 +62,7 @@ describe('object operations', () => {
      * Find the top value (Number) from any date
      * See expected result below
      */
-    const actual = Math.max(...Object.keys(data).map(date => {
-      return data[date];
-    }));
+    const actual = null // TODO:
     const expected = 4083.165
     assert.equal(actual, expected)
   })
@@ -83,15 +74,7 @@ describe('object operations', () => {
      * Return the top 5 dates in descending order
      * See expected result below
      */
-    
-    const actual = Object.keys(data).map(date => {
-        return { date: date, value: data[date]}
-      }, data).sort((a, b) => {
-        return b.value - a.value
-      }).slice(0, 5).reduce((obj, prop) => {
-        obj[prop.date] = prop.value
-        return obj
-      }, {})
+    const actual = null // TODO:
     const expected = {
       '2019-01-06': 4083.165,
       '2019-01-07': 4041.4583,
